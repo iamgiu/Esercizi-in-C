@@ -9,7 +9,7 @@ A+B, A-B, A*B, A/B. Si ipotizzi che sia B/=0.*/
 int main(void) {
 
   //Stampa di cosa fa il programma
-  printf("Prigramma: Calcolatrice\n\n");
+  printf("Programma: Calcolatrice\n\n");
 
   //Defenisco le Variabili
   float a, b;
