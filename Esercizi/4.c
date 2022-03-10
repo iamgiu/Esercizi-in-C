@@ -32,7 +32,7 @@ int main(void) {
   printf("I numeri inseriti sono: %f, %f\n", a, b);
   printf("La somma tra %f e %f e': %f\n", a, b, somma);
   printf("La differenza tra %f e %f e': %f\n", a, b, differenza);
-  printf("La moltiplicazione tra %f e %f e': %for\n", a, b, moltiplicazione);
+  printf("La moltiplicazione tra %f e %f e': %f\n", a, b, moltiplicazione);
   printf("La divisione tra %f e %f e': %f\n", a, b, quoziente);
 
   return 0;
