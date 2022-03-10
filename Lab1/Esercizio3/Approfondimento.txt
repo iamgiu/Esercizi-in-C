@@ -1,0 +1,4 @@
+DOMANDA: Che cosa leggo quando il contatore è pari? E quando è dispari? Quale è la differenza tra fgets ed fscanf?
+
+RISPOSTA: quando il contatore è pari leggo nel file Output_even.txt le righe pari mentre quando è dispari leggo nel file Output_odd.txt
+le righe dispari, fgefts prendere tutta il testo mentre fscanf prende solo la stringa prima di uno spazio.

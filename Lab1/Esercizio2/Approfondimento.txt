@@ -1,0 +1,3 @@
+DOMANDA: Cosa succede nella stampa su file se non viene inserita la riga if(!feof(fp_read))? Perché si verifica?
+
+RISPOSTA: 

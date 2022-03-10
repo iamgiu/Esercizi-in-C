@@ -1,0 +1,3 @@
+DOMANDA: Cosa succede quando op2 è uguale a 0?
+
+RISPOSTA: Nella divisione se op2 è 0 il risultato sarà infinito perchè qualsiasi numero diviso 0 è impossibile
