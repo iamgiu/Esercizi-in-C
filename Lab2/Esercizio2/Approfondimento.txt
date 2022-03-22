@@ -1,0 +1,5 @@
+APPROFONDIMENTO:  si modifichi la serie come segue:
+Xi = Xi-1 * Xi-2, con X0 = 1 e X1 = 2;
+
+RISPOSTA: serie di 20 numeri -> 1 2 2 4 8 32 256 8192 2097152 0 0 0 0 0 0 0 0 0 0 0
+Dopo i primi 10 numeri, i numeri non so più rappresentabili
