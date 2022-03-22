@@ -135,24 +135,25 @@ int compressione (FILE *fin, FILE *fout) {
       if (isdigit(c2) == 0) {
         if (c2 >= 'a' && c2 <= 'z') {
           h = c2 - 'a';
-          printf("%c %c", c2, c1);
+          i = c1 + h;
           if (i > 'z') {
-            i = 'a' + (i - ('z' - 1));
+            i = i % 26;
+            i = i + 'a';
             fprintf(fout, "%c", i);
           }
           else {
-            i = c1 + h;
             fprintf(fout, "%c", i);
           }
         }
         if (c2 >= 'A' && c2 <= 'Z') {
           h = c2 - 'A';
+          i = c1 + h;
           if (i > 'Z') {
-            i = 'A' + (i - ('Z' - 1));
+            i = i % 26;
+            i = i + 'A';
             fprintf(fout, "%c", i);
           }
           else {
-            i = c1 + h;
             fprintf(fout, "%c", i);
           }
         }
