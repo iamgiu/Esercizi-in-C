@@ -1,17 +1,21 @@
-CCaarraatttteerriizzzzaattaa  ddaa  uunn  ppaassssaattoo  ttuurrbboolleennttoo,, iinn
-
-eeppooccaa  mmeeddiieevvaallee  RRoouueenn  ffuu  ddeevvaassttaattaa  ppiiuu'' vvoollttee
-
-ddaa  iinncceennddii  eedd  eeppiiddeemmiiee  ee  dduurraannttee  llaa  GGuueerrrraa
-
-ddeeii  CCeenntt'nnnnii  ffuu  ooccccuuppaattaa  ddaaggllii  iinngglleessii.nneell  ********  nneellllaa  ssuuaa  ppiiaazzzzaa  cceennttrraallee  llaa  ggiioovvaannee
-
-GGiioovvaannnnaa  dd'rrccoo  ((JJeeaannnnee  dd'rrcc))  ffuu  pprroocceessssaattaa
-
-ppeerr  eerreessiiaa  ee  aarrssaa  ssuull  rrooggoo!! Duurraannttee  llaa  sseeccoonnddaa
-
-gguueerrrraa  mmoonnddiiaallee  ggllii  AAlllleeaattii  bboommbbaarrddaarroonnoo
-
-aammppiiee  zzoonnee  ddeellllaa  cciittttaa'  ssoopprraattttuuttttoo  iill
-
-qquuaarrttiieerree  cchhee  ssii  eesstteennddee  aa  ssuudd  ddeellllaa  ccaatttteeddrraallee.
+Caratterizzata da un pas| c:25
+sato turbolento, in     | c:19
+epoca medievale Rouen f| c:25
+u devastata piu' volte  | c:22
+da incendi ed epidemie | c:25
+e durante la Guerra     | c:19
+dei Cent' Anni fu occupa| c:25
+ta dagli inglesi.
+Nel *| c:25
+*** nella sua piazza | c:25
+centrale la giovane     | c:19
+Giovanna d' Arco (Jeanne| c:25
+ d' Arc) fu processata   | c:21
+per eresia e arsa sul r| c:25
+ogo! Durante la seconda  | c:22
+guerra mondiale gli All| c:25
+eati bombardarono       | c:17
+ampie zone della citta' ,| c:26
+ soprattutto il         | c:15
+quartiere che si estend| c:25
+e a sud della cattedrale| c:25
