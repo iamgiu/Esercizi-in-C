@@ -50,7 +50,8 @@ int main () {
       return 2;
   }
 
-  while ((curr_char = fgetc(fin)) != EOF) {
+  while (!feof(fin)) {
+    curr_char = fgetc(fin);
     //Al termine di ogni riga vanno aggiunti, prima dell’a-capo, eventuali spazi per raggiungere i 25 caratteri
     //Ogni riga deve terminare con il numero di caratteri del file originale trascritti nella riga, nel formato: “ | c:%d \n”.
     if (next_char == '\n' || curr_char == '\n') {
