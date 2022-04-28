@@ -39,7 +39,7 @@ int main() {
       printf("Inserire posizioni (P < N, 0 per terminare): ");
       scanf("%d", &P);
 
-      if (P != 0) {
+      if (P != 0 && P < N) {
         printf("Inserire la direzione: (-1 per rotazione a destra, 1 per rotazione a sinistra): ");
         scanf("%d", &dir);
 
