@@ -54,7 +54,7 @@ int main() {
 
   lettura(file, matrice, &nr, &nc);
 
-  printf("La matrice e': ");
+  printf("La matrice e':\n");
   stampa(matrice, nr, nc);
 
   maxmat(matrice, nr, nc, &maxdim);
