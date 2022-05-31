@@ -49,18 +49,18 @@ typedef enum {FALSE = 0, TRUE} bool;
 
 void leggiFile(int matrice[][C], int *nc, int *nr);
 void stampaMatrice(int matrice[][C], int nc, int nr);
-void rettangoli(int matrice[][C], int nr, int nc, log *max_b, log *max_h, log *max_a);
+void rettangoli(int matrice[][C], int nr, int nc, log max_b, log max_h, log max_a);
 void r_prec(log *r, int x, int y, int b, int h, int a);
 void stampaRettangolo(log *r);
 
 int main () {
-  log *max_b, *max_h, *max_a;
-  int matrice[R][C], nc, nr, temp, ret = 0;
+  log max_b, max_h, max_a;
+  int matrice[R][C], nc, nr, temp;
 	bool boolRett = FALSE;
 
-  max_b->b = 0;
-  max_h->h = 0;
-  max_a->a = 0;
+  max_b->b;
+  max_h->h;
+  max_a->a;
 
   leggiFile(matrice, &nc, &nr);
 
