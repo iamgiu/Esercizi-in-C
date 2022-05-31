@@ -48,25 +48,20 @@ typedef struct {
 typedef enum {FALSE = 0, TRUE} bool;
 
 void leggiFile(int matrice[][C], int *nc, int *nr);
-void stampaMatrice(int matrice[][C], int nc, int nr);
-void rettangoli(int matrice[][C], int nr, int nc, log max_b, log max_h, log max_a);
+void rettangoli(int matrice[][C], int nr, int nc, log *max_b, log *max_h, log *max_a);
 void r_prec(log *r, int x, int y, int b, int h, int a);
-void stampaRettangolo(log *r);
+void stampaRettangolo(log r);
 
 int main () {
-  log max_b, max_h, max_a;
+  log max_b = {0, 0, 0, 0, 0};
+  log max_h = {0, 0, 0, 0, 0};
+  log max_a = {0, 0, 0, 0, 0};
   int matrice[R][C], nc, nr, temp;
 	bool boolRett = FALSE;
 
-  max_b->b;
-  max_h->h;
-  max_a->a;
-
   leggiFile(matrice, &nc, &nr);
 
-  stampaMatrice(matrice, nc, nr);
-
-	rettangoli(matrice, nr, nc, max_b, max_h, max_a);
+	rettangoli(matrice, nr, nc, &max_b, &max_h, &max_a);
 
 	printf("Max Base: \t");
 	stampaRettangolo(max_b);
@@ -94,17 +89,6 @@ void leggiFile(int matrice[][C], int *nc, int *nr){
     }
   }
   fclose(fp);
-}
-
-void stampaMatrice(int matrice[][C], int nc, int nr) {
-  int i, j;
-
-  for(i = 0; i < nr; i++) {
-    for(j = 0; j < nc; j++) {
-     printf("%d ",matrice[i][j]);
-   }
-   printf("\n");
- }
 }
 
 void rettangoli(int matrice[][C], int nr, int nc, log *max_b, log *max_h, log *max_a) {
@@ -158,12 +142,12 @@ void r_prec(log *r, int x, int y, int b, int h, int a) {
 	r->a = a;
 }
 
-void stampaRettangolo(log *r) {
-	printf("Estr. sup. SX=<%d,%d> b=%d, h=%d, Area=%d\n",
-			r->x,
-			r->y,
-			r->b,
-			r->h,
-			r->a
+void stampaRettangolo(log r) {
+	printf("estremo: (%d,%d) larghezza=%d, altezza=%d, area=%d\n",
+			r.x,
+			r.y,
+			r.b,
+			r.h,
+			r.a
 	);
 }
