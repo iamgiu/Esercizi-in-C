@@ -33,8 +33,8 @@ Max area: estremo=(1,2), altezza=2, larghezza=2, area=4*/
 #include <stdlib.h>
 
 #define N 60
-#define R 20
-#define C 20
+#define R 50
+#define C 50
 #define file "matrice.txt"
 
 typedef struct {
