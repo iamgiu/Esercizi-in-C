@@ -43,7 +43,7 @@ typedef struct {
 typedef enum {FALSE = 0, TRUE} bool;
 
 void leggiMatrice(int matrice[][N], int *nc, int *nr);
-bool regione(int matrice[][N], int nr, int nc, int r, int c, int *b, int *h)
+bool regione(int matrice[][N], int nr, int nc, int r, int c, int *b, int *h);
 void rettangoli(int matrice[][N], int nr, int nc, log *max_b, log *max_h, log *max_a);
 void r_prec(log *r, int x, int y, int b, int h, int a);
 void stampaRettangolo(log r);
@@ -57,17 +57,17 @@ int main () {
 
   leggiMatrice(matrice, &nc, &nr);
 
-	rettangoli(matrice, nr, nc, &max_b, &max_h, &max_a);
+  rettangoli(matrice, nr, nc, &max_b, &max_h, &max_a);
 
-	printf("Max Base: \t");
-	stampaRettangolo(max_b);
-	printf("Max Altezza: \t");
-	stampaRettangolo(max_h);
-	printf("Max Area: \t");
-	stampaRettangolo(max_a);
+  printf("Max Base: \t");
+  stampaRettangolo(max_b);
+  printf("Max Altezza: \t");
+  stampaRettangolo(max_h);
+  printf("Max Area: \t");
+  stampaRettangolo(max_a);
 }
 
-void leggiFile(int matrice[][N], int *nc, int *nr){
+void leggiMatrice(int matrice[][N], int *nc, int *nr){
   FILE *fp;
   int c, r, i, j;
 
@@ -89,10 +89,10 @@ void leggiFile(int matrice[][N], int *nc, int *nr){
 
 bool regione(int matrice[][N], int nr, int nc, int r, int c, int *b, int *h) {
 // se non è un estremo sinistro, termina la funzione
-if(r > 0 && M[r-1][c] == 1) {
+if(r > 0 && matrice[r-1][c] == 1) {
     return FALSE;
  }
- if(c > 0 && M[r][c-1] == 1) {
+ if(c > 0 && matrice[r][c-1] == 1) {
     return FALSE;
  }
 
@@ -100,15 +100,15 @@ if(r > 0 && M[r-1][c] == 1) {
  bool countB = TRUE;
  *b = 0;
  *h = 0;
- if(M[r][c] == 1) {
+ if(matrice[r][c] == 1) {
     tempR = r;
     tempC = c;
-    while(M[tempR][tempC] == 1) {
+    while(matrice[tempR][tempC] == 1) {
        if (countB) {
           *b = *b + 1;
        }
        tempC++;
-       if(tempC >= nc || M[tempR][tempC] == 0) {
+       if(tempC >= nc || matrice[tempR][tempC] == 0) {
           tempR++;
           tempC = c;
           *h = *h + 1;
@@ -123,48 +123,35 @@ if(r > 0 && M[r-1][c] == 1) {
 }
 
 void rettangoli(int matrice[][N], int nr, int nc, log *max_b, log *max_h, log *max_a) {
-  int i, j, tempI, tempJ, b = 0, h = 0, a;
+	int i, j, tempI, tempJ, b = 0, h = 0, a;
+  log rett = {0,0,0,0,0};
 	bool countB;
+
+  printf("Rettangoli trovati: \n");
 
 	for(i = 0; i < nr; i++) {
 		for(j = 0; j < nc; j++) {
 			countB = TRUE;
-			if(matrice[i][j] == 1) {
-				tempI = i;
-				tempJ = j;
-				while(matrice[tempI][tempJ] == 1) {
-					matrice[tempI][tempJ] = 0;
-					if (countB) {
-						b++;
-					}
-					tempJ++;
-					if(tempJ >= nc || matrice[tempI][tempJ] == 0) { // se cambia riga
-						tempI++;
-						tempJ = j;
-						h++;
-						countB = FALSE; // smette di contare per la base
-					}
-					if(tempI >= nr) {
-						break;
-					}
-				}
-				a = b * h;
-				if((max_b->b) < b) {
-					r_prec(max_b, i, j, b, h, a);
-				}
-				if((max_h->h) < h) {
-					r_prec(max_h, i, j, b, h, a);
-				}
-				if((max_a->a) < a) {
-					r_prec(max_a, i, j, b, h, a);
-				}
-				b = 0;
-				h = 0;
+        if(regione(matrice, nr, nc, i, j, &b, &h)) {
+          a = b * h;
+          r_prec(&rett, i, j, b, h, a);
+          stampaRettangolo(rett);
+          if((max_b->b) < b) {
+ 				  r_prec(max_b, i, j, b, h, a);
+   			}
+   			if((max_h->h) < h) {
+   				r_prec(max_h, i, j, b, h, a);
+   			}
+   			if((max_a->a) < a) {
+   				r_prec(max_a, i, j, b, h, a);
+   			}
+   			b = 0;
+   			h = 0;
 			}
 		}
 	}
+   printf("\n");
 }
-
 void r_prec(log *r, int x, int y, int b, int h, int a) {
 	r->x = x;
 	r->y = y;
