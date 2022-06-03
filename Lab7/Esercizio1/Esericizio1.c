@@ -1,4 +1,3 @@
-
 /*Un file di testo contiene una matrice di interi (0 o 1) con il seguente formato:
 • la prima riga del file specifica le dimensioni reali della matrice (numero di righe nr e numero di colonne nc).
   Si assuma che entrambi i valori siano al più pari a 50
