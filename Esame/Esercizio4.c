@@ -1,7 +1,7 @@
 //Versione esame
 char *findSubstring(char s1[], char s2[]) {
   //variabile char per memorizzare la mia sotto_sequenza nel caso ci sia
-  char sotto_sequenza[]; //sarebbe più corretto scriverlo in questo modo -> char *sotto_sequenza; + variabile inutile occupa spazio
+  char sotto_sequenza[]; //sarebbe stato più corretto scrivere la variabile in questo modo -> char *sotto_sequenza; ma comunque risulta una variabile inutile perchè occupa spazio
   //variabile int fa da contatore
   int seq = 0;
 
