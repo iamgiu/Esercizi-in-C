@@ -15,7 +15,7 @@ char *findSubstring(char s1[], char s2[]) {
     }
     if (seq == strlen(s2)) { //se il mio contatore seq è uguale alla lunghezza della seconda stringa
       sotto_sequenza = s2;
-      return sotto_sequenza; //devo ritornare il puntatore alla prima cella della sottostringa equivalente a s2 presente in s1 -> s1[i];
+      return sotto_sequenza; //devo ritornare il puntatore alla prima cella della sottostringa equivalente a s2 presente in s1 -> &s1[i];
     }
     else {
       seq = 0; //se no il mio contatore torna a 0
@@ -35,7 +35,7 @@ char *findSubstring(char s1[], char s2[]) {
       }
     }
     if (seq == strlen(s2)) {
-      return s1[i];
+      return &s1[i];
     }
     else {
       seq = 0;
