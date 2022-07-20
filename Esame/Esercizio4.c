@@ -8,12 +8,13 @@ char *findSubstring(char s1[], char s2[]) {
 //tratto le due stringhe come matrice
   for (int i = 0; i < strlen(s1); i++) { //primo ciclo for sulla prima stringa
     for (int j = 0; j < strlen(s2); j++) { //secondo ciclo for sulla seconda stringa
-      if (s1[i] == s1[j]) { //correzione: s1[i+j] == s2[j]
+      if (s1[i] == s2[j]) { //correzione: s1[i+j] == s2[j]
         seq++; //aumento il mio contatore se la prima stringa nella posizione i+j è uguale alla seconda nella posizione j
-        sotto_sequenza = s2; //non è necessario
+        sotto_sequenza = s2; //va fatto dopo
       }
     }
     if (seq == strlen(s2)) { //se il mio contatore seq è uguale alla lunghezza della seconda stringa
+      sotto_sequenza = s2;
       return sotto_sequenza; //ritorna sotto_sequenza
     }
     else {
@@ -30,7 +31,7 @@ char *findSubstring(char s1[], char s2[]) {
 
   for (int i = 0; i < strlen(s1); i++) {
     for (int j = 0; j < strlen(s2); j++) {
-      if (s1[i + j] == s1[j]) {
+      if (s1[i + j] == s2[j]) {
         seq++;
       }
     }
