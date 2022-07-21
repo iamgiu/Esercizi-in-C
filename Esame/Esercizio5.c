@@ -1,5 +1,5 @@
 //Versione esame
-int textStats(char *filename) { //ho letto male il testo 
+int textStats(char *filename) { //ho letto male il testo
   char s[], c;
   int cont = 0, min_len = 20, min_cont = 0, max_len = 0, max_cont = 0, len = 0, m_cont = 0, v_cont = 0, media;
   float vocali;
@@ -54,7 +54,7 @@ int textStats(char *filename) { //ho letto male il testo
 //Versione corretta
 int textStats(char *filename) {
     char s[20];
-    int cont = 0, m_cont = 0, len = 0, m[20][2], v_cont = 0;
+    int cont = 0, m_cont = 0, len = 0, m[20][2], v_cont = 0, percentuale = 0;
     float vocali = 0;
     FILE *fp; //Non sono sicura
 
@@ -79,7 +79,22 @@ int textStats(char *filename) {
       }
 
       if (s == 'a' || s == 'A' || s == 'e' || s == 'E' || s == 'i' || s == 'I' || s == 'o' || s == 'O' || s == 'u' || s == 'U' ) {
-
+        v_cont++;
       }
+
+      for (int i = 0; i < 20, i++) {
+        if (m[i][1] != 0) {
+          printf("%d string/s with lenght %d\n", m[i][0], m[i][1]);
+        }
+      }
+
+    percentuale = (m_cont * 100) / cont;
+    printf("%d with all capital letters\n", percentuale);
+
+    vocali = v_cont / cont;
+    printf("Average number of vowels: %d\n", vocali);
+
+    fclose(fp);
+    
     return cont;
 }
