@@ -1,5 +1,5 @@
 //Versione esame
-int textStats(char *filename) {
+int textStats(char *filename) { //ho letto male il testo 
   char s[], c;
   int cont = 0, min_len = 20, min_cont = 0, max_len = 0, max_cont = 0, len = 0, m_cont = 0, v_cont = 0, media;
   float vocali;
@@ -81,8 +81,5 @@ int textStats(char *filename) {
       if (s == 'a' || s == 'A' || s == 'e' || s == 'E' || s == 'i' || s == 'I' || s == 'o' || s == 'O' || s == 'u' || s == 'U' ) {
 
       }
-
-
-
     return cont;
 }
