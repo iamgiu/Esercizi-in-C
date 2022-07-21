@@ -54,24 +54,34 @@ int textStats(char *filename) {
 //Versione corretta
 int textStats(char *filename) {
     char s[20];
-    int vocali=0, parole=0 ,parolemaiusc=0, len=0, m[20][2];
-    FILE *fp;
+    int cont = 0, m_cont = 0, len = 0, m[20][2], v_cont = 0;
+    float vocali = 0;
+    FILE *fp; //Non sono sicura
 
-    if ((fp = fopen(filename, "r")) != NULL) { //controllo file
+    if ((fp = *fopen(*filename, "r")) != NULL) { //Non sono sicura
       printf("Error opening file");
       return -1;
     }
 
-    for (int i = 0; i < 20; i++) {
-      m[i][0]=i;
+    for (int i = 0; i < 20; i++) { //inizializzo la matrice con due colonne e venti righe -> la seconda colonna verrà incrementata nella posizione [i] ogni volta che la stringa presa in cosiderazione sarà lunga [i] caratteri
+      m[i][0] = i;
     }
 
     while(!feof(fp)) {
-      fscanf(fp, "%s", s);
-      parole++;
+      fscanf(fp, "%s", s); //prendo le stringhe dal file
+      cont++; //aumento il mio contatore -> numero totali di parole
 
-      len = strlen(s);
-      m[len][1]++;
+      len = strlen(s); //lunghezza di una stringa
+      m[len][1]++; //incremento la mia matrice nella posizione [i]
+
+      if (isupper(s)) { //controllo se la mia stringa è scritta in maiuscolo
+        m_cont++; //se si incrementa il contatore
+      }
+
       
     }
+
+
+
+    return cont;
 }
