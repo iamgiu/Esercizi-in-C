@@ -78,8 +78,9 @@ int textStats(char *filename) {
         m_cont++; //se si incrementa il contatore
       }
 
-      
-    }
+      if (s == 'a' || s == 'A' || s == 'e' || s == 'E' || s == 'i' || s == 'I' || s == 'o' || s == 'O' || s == 'u' || s == 'U' ) {
+
+      }
 
 
 
