@@ -1,7 +1,7 @@
 //Versione esame
 int textStats(char *filename) { //ho letto male il testo
   char s[], c;
-  int cont = 0, min_len = 20, min_cont = 0, max_len = 0, max_cont = 0, len = 0, m_cont = 0, v_cont = 0, media;
+  int cont = 0, min_len = 20, min_cont = 0, max_len = 0, max_cont = 0, len = 0, m_cont = 0, v_cont = 0, media; //variabile percentuale -> float
   float vocali;
 
   if ((fp = fopen(filename, "r")) != NULL) { //controllo file
@@ -26,17 +26,18 @@ int textStats(char *filename) { //ho letto male il testo
       min_cont++;
     }
 
-    c = fgetc(fp);
+    c = fgetc(fp); //volevo prendere il singolo carattere per analizzarlo
 
     if (isupper(c)) {
       m_cont++;
     }
 
-    if (c == "AEIOUaeiou") {
+    if (c == "AEIOUaeiou") {//confunsione con python -> confrontare le vocali e incrementavo il contatore
       v_cont++;
     }
   }
 
+  //printf
   printf("%d string/s with lenght %d\n", min_cont, min_len);
   printf("%d string/s with lenght %d\n", max_cont, max_len);
 
@@ -53,48 +54,63 @@ int textStats(char *filename) { //ho letto male il testo
 
 //Versione corretta
 int textStats(char *filename) {
-    char s[20];
-    int cont = 0, m_cont = 0, len = 0, m[20][2], v_cont = 0, percentuale = 0;
-    float vocali = 0;
-    FILE *fp; //Non sono sicura
+  char s[20+1], c, vowels[10+1] = "aeiouAEIOU" ; //stringa e vettore per confrontare le vocali
+  int m_cont = 0, len = 0, v_cont = 0, v[20]; //contatori + vettore per le occorenze
+  float vocali = 0, percentuale, cont = 0, maiuscole = 0; //contatori e variabili per il printf
+  FILE *fp; //file
 
-    if ((fp = *fopen(*filename, "r")) != NULL) { //Non sono sicura
-      printf("Error opening file");
-      return -1;
-    }
+  if ((fp = fopen(filename, "r")) == NULL) {
+    printf("Error opening file");
+    return -1;
+  }
 
-    for (int i = 0; i < 20; i++) { //inizializzo la matrice con due colonne e venti righe -> la seconda colonna verrà incrementata nella posizione [i] ogni volta che la stringa presa in cosiderazione sarà lunga [i] caratteri
-      m[i][0] = i;
-    }
+  for(int i = 0; i < 20; i++) { //inizializzo il mio vettore a 0
+      v[i] = 0;
+  }
 
-    while(!feof(fp)) {
-      fscanf(fp, "%s", s); //prendo le stringhe dal file
-      cont++; //aumento il mio contatore -> numero totali di parole
+  while(!feof(fp)) { //ciclo fino alla fine del file
+    fscanf(fp, "%s", s); //prendo le stringhe dal file
+    printf("%s ", s);
 
-      len = strlen(s); //lunghezza di una stringa
-      m[len][1]++; //incremento la mia matrice nella posizione [i]
+    len = strlen(s); //lunghezza di una stringa
 
-      if (isupper(s)) { //controllo se la mia stringa è scritta in maiuscolo
-        m_cont++; //se si incrementa il contatore
+    v[len-1]++; //lunghezza della stringa = posizione vettore -> incremento
+
+    for (int i = 0; i < len; i++) { //ciclo per avere i singoli caratteri
+      c = s[i];
+
+      if (isupper(c)) { //controllo se la mia stringa è scritta in maiuscolo
+        m_cont++; //se si, incrementa il contatore
+        maiuscole = 1; //variabile booleana
       }
 
-      if (s == 'a' || s == 'A' || s == 'e' || s == 'E' || s == 'i' || s == 'I' || s == 'o' || s == 'O' || s == 'u' || s == 'U' ) {
-        v_cont++;
-      }
-
-      for (int i = 0; i < 20, i++) {
-        if (m[i][1] != 0) {
-          printf("%d string/s with lenght %d\n", m[i][0], m[i][1]);
+      for(int j = 0; j < strlen(vowels); j++) { //controllo le vocali nel vettore
+        if(s[i] == vowels[j]) {
+          v_cont++; //aumento il mio contatore
         }
       }
+    }
+    if (m_cont != len) { //se il mio contatore per le maiuscole non è uguale a len allora il mio contatore torna a 0 e anche la mia variabile booleana
+      m_cont = 0;
+      maiuscole = 0;
+    }
+    cont++; //contatore per il numero di parole
+  }
 
-    percentuale = (m_cont * 100) / cont;
-    printf("%d with all capital letters\n", percentuale);
+  //printf
+  printf("\n");
+  for (int i = 0; i < 20; i++) {
+    if (v[i] != 0)
+     printf("%d string/s with lenght %d\n", v[i], (i+1));
+  }
 
-    vocali = v_cont / cont;
-    printf("Average number of vowels: %d\n", vocali);
+  percentuale = (maiuscole * 100) / cont;
+  printf("%.2f% with all capital letters\n", percentuale);
 
-    fclose(fp);
-    
-    return cont;
+  vocali = (v_cont / cont);
+  printf("Average number of vowels: %.2f\n", vocali);
+
+  fclose(fp); //chiudo il file
+
+  return cont; //returno la mia variabile cont
 }
